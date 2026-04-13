@@ -146,13 +146,20 @@ function WebContainer({ children }: { children: React.ReactNode }) {
   const { width } = useWindowDimensions();
   const colors = useThemeColors();
 
-  if (Platform.OS !== 'web' || width < 600) {
+  if (Platform.OS !== 'web') {
+    return <>{children}</>;
+  }
+
+  if (width < 768) {
     return <>{children}</>;
   }
 
   return (
     <View style={webStyles.outerContainer}>
-      <View style={[webStyles.innerContainer, { backgroundColor: colors.background, borderColor: colors.border }]}>
+      <View style={[
+        webStyles.innerContainer,
+        { backgroundColor: colors.background, borderColor: colors.border },
+      ]}>
         {children}
       </View>
     </View>
@@ -163,12 +170,13 @@ const webStyles = StyleSheet.create({
   outerContainer: {
     flex: 1,
     alignItems: 'center' as const,
-    backgroundColor: '#0a0a0f',
+    backgroundColor: '#0f0f14',
+    paddingHorizontal: 24,
   },
   innerContainer: {
     flex: 1,
     width: '100%' as unknown as number,
-    maxWidth: 480,
+    maxWidth: 1200,
     borderLeftWidth: 1,
     borderRightWidth: 1,
     overflow: 'hidden' as const,
