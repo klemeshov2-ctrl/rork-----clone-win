@@ -143,43 +143,21 @@ function RootLayoutNav() {
 }
 
 function WebContainer({ children }: { children: React.ReactNode }) {
-  const { width } = useWindowDimensions();
-  const colors = useThemeColors();
-
   if (Platform.OS !== 'web') {
     return <>{children}</>;
   }
 
-  if (width < 768) {
-    return <>{children}</>;
-  }
-
   return (
-    <View style={webStyles.outerContainer}>
-      <View style={[
-        webStyles.innerContainer,
-        { backgroundColor: colors.background, borderColor: colors.border },
-      ]}>
-        {children}
-      </View>
+    <View style={webStyles.fullScreen}>
+      {children}
     </View>
   );
 }
 
 const webStyles = StyleSheet.create({
-  outerContainer: {
-    flex: 1,
-    alignItems: 'center' as const,
-    backgroundColor: '#0f0f14',
-    paddingHorizontal: 24,
-  },
-  innerContainer: {
+  fullScreen: {
     flex: 1,
     width: '100%' as unknown as number,
-    maxWidth: 1200,
-    borderLeftWidth: 1,
-    borderRightWidth: 1,
-    overflow: 'hidden' as const,
   },
 });
 
