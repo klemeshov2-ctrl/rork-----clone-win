@@ -508,7 +508,7 @@ export default function HelpScreen() {
         </Text>
       </View>
 
-      <Text style={styles.sectionLabel}>Основные разделы</Text>
+      <Text style={styles.sectionLabel}>{'ОСНОВНЫЕ РАЗДЕЛЫ'}</Text>
 
       {sections.slice(0, 5).map(section => (
         <AccordionItem
@@ -520,7 +520,7 @@ export default function HelpScreen() {
         />
       ))}
 
-      <Text style={styles.sectionLabel}>Общение</Text>
+      <Text style={styles.sectionLabel}>{'ОБЩЕНИЕ'}</Text>
 
       {sections.slice(5, 7).map(section => (
         <AccordionItem
@@ -532,7 +532,7 @@ export default function HelpScreen() {
         />
       ))}
 
-      <Text style={styles.sectionLabel}>Синхронизация</Text>
+      <Text style={styles.sectionLabel}>{'СИНХРОНИЗАЦИЯ'}</Text>
 
       {sections.slice(7, 11).map(section => (
         <AccordionItem
@@ -544,7 +544,7 @@ export default function HelpScreen() {
         />
       ))}
 
-      <Text style={styles.sectionLabel}>Дополнительно</Text>
+      <Text style={styles.sectionLabel}>{'ДОПОЛНИТЕЛЬНО'}</Text>
 
       {sections.slice(11).map(section => (
         <AccordionItem
@@ -624,7 +624,6 @@ function createStyles(colors: ThemeColors) {
       fontSize: 13,
       fontWeight: '600' as const,
       color: colors.textMuted,
-      textTransform: 'uppercase' as const,
       letterSpacing: 0.8,
       marginBottom: 12,
       marginTop: 8,

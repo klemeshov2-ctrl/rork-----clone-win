@@ -185,7 +185,7 @@ export default function SyncMasterScreen() {
           <>
             {masterPublicUrl && (
               <View style={styles.section}>
-                <Text style={styles.sectionTitle}>Публичная ссылка</Text>
+                <Text style={styles.sectionTitle}>{'ПУБЛИЧНАЯ ССЫЛКА'}</Text>
                 <View style={styles.urlCard}>
                   <Text style={styles.urlText} numberOfLines={2} selectable>
                     {masterPublicUrl}
@@ -228,7 +228,7 @@ export default function SyncMasterScreen() {
             )}
 
             <View style={styles.section}>
-              <Text style={styles.sectionTitle}>Действия</Text>
+              <Text style={styles.sectionTitle}>{'ДЕЙСТВИЯ'}</Text>
               <TouchableOpacity
                 style={styles.actionButton}
                 onPress={handlePublish}
@@ -249,7 +249,7 @@ export default function SyncMasterScreen() {
             </View>
 
             <View style={styles.section}>
-              <Text style={styles.sectionTitle}>Авто-синхронизация</Text>
+              <Text style={styles.sectionTitle}>{'АВТО-СИНХРОНИЗАЦИЯ'}</Text>
               <View style={styles.settingRow}>
                 <View style={styles.settingInfo}>
                   <Text style={styles.settingLabel}>Авто-синхронизация</Text>
@@ -321,7 +321,7 @@ export default function SyncMasterScreen() {
             </View>
 
             <View style={styles.section}>
-              <Text style={styles.sectionTitle}>Управление</Text>
+              <Text style={styles.sectionTitle}>{'УПРАВЛЕНИЕ'}</Text>
               <TouchableOpacity
                 style={styles.actionButton}
                 onPress={handleResetMaster}
@@ -342,7 +342,7 @@ export default function SyncMasterScreen() {
             </View>
 
             {isAccessGranted && <View style={styles.section}>
-              <Text style={styles.sectionTitle}>Подписчики ({firestoreSubscribers.length})</Text>
+              <Text style={styles.sectionTitle}>{`ПОДПИСЧИКИ (${firestoreSubscribers.length})`}</Text>
               <View style={styles.subscribersCard}>
                 {isLoadingSubscribers ? (
                   <View style={styles.subscribersEmpty}>
@@ -415,7 +415,7 @@ export default function SyncMasterScreen() {
             </View>}
 
             <View style={styles.section}>
-              <Text style={styles.sectionTitle}>Интервал автопубликации</Text>
+              <Text style={styles.sectionTitle}>{'ИНТЕРВАЛ АВТОПУБЛИКАЦИИ'}</Text>
               <View style={styles.intervalCard}>
                 {INTERVAL_OPTIONS.map((option) => (
                   <TouchableOpacity
@@ -509,7 +509,6 @@ function createStyles(colors: ThemeColors) {
       fontSize: 13,
       fontWeight: '600' as const,
       color: colors.textMuted,
-      textTransform: 'uppercase',
       letterSpacing: 0.8,
       marginBottom: 10,
     },

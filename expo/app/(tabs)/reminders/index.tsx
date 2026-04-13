@@ -234,7 +234,7 @@ function TasksTab({ colors }: { colors: ThemeColors }) {
       renderSectionHeader={({ section }) => (
         <View style={{ flexDirection: 'row', alignItems: 'center', gap: 8, marginTop: 16, marginBottom: 10, paddingHorizontal: 4 }}>
           {section.icon}
-          <Text style={{ fontSize: 13, fontWeight: '700' as const, letterSpacing: 0.5, textTransform: 'uppercase' as const, color: section.color }}>{section.title}</Text>
+          <Text style={{ fontSize: 13, fontWeight: '700' as const, letterSpacing: 0.5, color: section.color }}>{section.title.toUpperCase()}</Text>
         </View>
       )}
       renderItem={({ item }) => {

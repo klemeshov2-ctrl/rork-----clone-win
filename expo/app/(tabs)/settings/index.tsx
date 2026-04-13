@@ -299,7 +299,7 @@ export default function SettingsScreen() {
       </View>
       <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={styles.scrollContent}>
 
-        <Text style={styles.sectionTitle}>Профиль</Text>
+        <Text style={styles.sectionTitle}>{'ПРОФИЛЬ'}</Text>
         <View style={styles.settingRow}>
           <View style={[styles.settingIcon, { backgroundColor: colors.info + '20' }]}>
             <User size={20} color={colors.info} />
@@ -346,7 +346,7 @@ export default function SettingsScreen() {
           </View>
         </View>
 
-        <Text style={styles.sectionTitle}>Данные</Text>
+        <Text style={styles.sectionTitle}>{'ДАННЫЕ'}</Text>
         <TouchableOpacity
           style={styles.settingRow}
           onPress={() => router.push('/backup' as any)}
@@ -377,7 +377,7 @@ export default function SettingsScreen() {
           <ChevronRight size={18} color={colors.textMuted} />
         </TouchableOpacity>
 
-        <Text style={styles.sectionTitle}>Доступ</Text>
+        <Text style={styles.sectionTitle}>{'ДОСТУП'}</Text>
         {isAccessGranted ? (
           <View style={styles.settingRow}>
             <View style={[styles.settingIcon, { backgroundColor: colors.success + '20' }]}>
@@ -426,7 +426,7 @@ export default function SettingsScreen() {
           </TouchableOpacity>
         )}
 
-        <Text style={styles.sectionTitle}>Безопасность</Text>
+        <Text style={styles.sectionTitle}>{'БЕЗОПАСНОСТЬ'}</Text>
         {hasPin && (
           <View style={styles.settingRow}>
             <View style={[styles.settingIcon, { backgroundColor: colors.success + '20' }]}>
@@ -480,7 +480,7 @@ export default function SettingsScreen() {
           <ChevronRight size={18} color={colors.textMuted} />
         </TouchableOpacity>
 
-        <Text style={styles.sectionTitle}>Оформление</Text>
+        <Text style={styles.sectionTitle}>{'ОФОРМЛЕНИЕ'}</Text>
         <View style={styles.themeSection}>
           <View style={styles.themeSectionHeader}>
             <Palette size={20} color={colors.primary} />
@@ -497,7 +497,7 @@ export default function SettingsScreen() {
           ))}
         </View>
 
-        <Text style={styles.sectionTitle}>Информация</Text>
+        <Text style={styles.sectionTitle}>{'ИНФОРМАЦИЯ'}</Text>
         <TouchableOpacity
           style={styles.settingRow}
           onPress={() => router.push('/settings/help')}
@@ -595,7 +595,6 @@ function createStyles(colors: ThemeColors) {
       fontSize: 13,
       fontWeight: '600' as const,
       color: colors.textMuted,
-      textTransform: 'uppercase' as const,
       letterSpacing: 0.8,
       marginBottom: 12,
       marginTop: 8,

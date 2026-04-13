@@ -259,7 +259,7 @@ export default function ExcelScreen() {
         </View>
 
         <View style={styles.section}>
-          <Text style={styles.sectionTitle}>Данные в приложении</Text>
+          <Text style={styles.sectionTitle}>{'ДАННЫЕ В ПРИЛОЖЕНИИ'}</Text>
           <View style={styles.statsCard}>
             {stats.map((stat, index) => (
               <View key={index} style={[styles.statRow, index < stats.length - 1 && styles.statRowBorder]}>
@@ -278,7 +278,7 @@ export default function ExcelScreen() {
         </View>
 
         <View style={styles.section}>
-          <Text style={styles.sectionTitle}>Действия</Text>
+          <Text style={styles.sectionTitle}>{'ДЕЙСТВИЯ'}</Text>
 
           <TouchableOpacity
             style={styles.actionButton}
@@ -411,7 +411,6 @@ function createStyles(colors: ThemeColors) { return StyleSheet.create({
     fontSize: 13,
     fontWeight: '600' as const,
     color: colors.textMuted,
-    textTransform: 'uppercase',
     letterSpacing: 0.8,
     marginBottom: 12,
   },

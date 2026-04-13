@@ -85,8 +85,8 @@ function GroupSection({ group, objects, colors, isExpanded, onToggle, onEdit, on
       >
         {isExpanded ? <ChevronDown size={18} color={colors.textSecondary} /> : <ChevronRight size={18} color={colors.textSecondary} />}
         <Folder size={16} color={group ? colors.primary : colors.textMuted} />
-        <Text style={{ flex: 1, fontSize: 14, fontWeight: '700' as const, color: colors.text, textTransform: 'uppercase' as const, letterSpacing: 0.5 }}>
-          {title}
+        <Text style={{ flex: 1, fontSize: 14, fontWeight: '700' as const, color: colors.text, letterSpacing: 0.5 }}>
+          {title.toUpperCase()}
         </Text>
         <Text style={{ fontSize: 12, color: colors.textMuted, marginRight: 4 }}>{objects.length}</Text>
         {group && onEdit && (

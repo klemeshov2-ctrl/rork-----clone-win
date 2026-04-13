@@ -85,7 +85,7 @@ function CategoryAccordion({ category, items, colors, isExpanded, onToggle, onEd
       <TouchableOpacity onPress={onToggle} style={{ flexDirection: 'row' as const, alignItems: 'center' as const, paddingVertical: 10, gap: 8 }}>
         {isExpanded ? <ChevronDown size={18} color={colors.textSecondary} /> : <ChevronRight size={18} color={colors.textSecondary} />}
         <Tag size={15} color={category ? colors.primary : colors.textMuted} />
-        <Text style={{ flex: 1, fontSize: 13, fontWeight: '700' as const, color: colors.text, textTransform: 'uppercase' as const, letterSpacing: 0.5 }}>{title}</Text>
+        <Text style={{ flex: 1, fontSize: 13, fontWeight: '700' as const, color: colors.text, letterSpacing: 0.5 }}>{title.toUpperCase()}</Text>
         <Text style={{ fontSize: 12, color: colors.textMuted }}>{items.length}</Text>
         {category && onEdit && (
           <TouchableOpacity onPress={onEdit} hitSlop={{ top: 8, bottom: 8, left: 8, right: 8 }} style={{ padding: 4 }}>

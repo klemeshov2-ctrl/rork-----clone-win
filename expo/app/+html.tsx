@@ -23,7 +23,7 @@ export default function Root({ children }: { children: React.ReactNode }) {
           crossOrigin="anonymous"
         />
         <link
-          href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700;800;900&subset=cyrillic,cyrillic-ext,latin,latin-ext&display=swap"
           rel="stylesheet"
         />
         <ScrollViewStyleReset />
@@ -38,13 +38,19 @@ export default function Root({ children }: { children: React.ReactNode }) {
                 -webkit-font-smoothing: antialiased;
                 -moz-osx-font-smoothing: grayscale;
               }
+              * {
+                font-family: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif !important;
+              }
+              [dir] div, [dir] span, [dir] p, [dir] input, [dir] textarea {
+                font-family: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif !important;
+              }
               #root {
                 display: flex;
                 flex: 1;
                 height: 100vh;
               }
               input, textarea, select, button {
-                font-family: inherit;
+                font-family: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif !important;
               }
               ::-webkit-scrollbar {
                 width: 6px;

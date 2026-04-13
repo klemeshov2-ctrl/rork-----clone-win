@@ -428,7 +428,6 @@ function createStyles(colors: ThemeColors) { return StyleSheet.create({
     fontSize: 11,
     color: colors.primary,
     fontWeight: '600' as const,
-    textTransform: 'uppercase' as const,
     marginBottom: 2,
   },
   itemText: {

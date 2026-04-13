@@ -272,7 +272,7 @@ export default function SyncSubscriberScreen() {
         ) : activeSub ? (
           <>
             <View style={styles.section}>
-              <Text style={styles.sectionTitle}>Ссылка на бэкап</Text>
+              <Text style={styles.sectionTitle}>{'ССЫЛКА НА БЭКАП'}</Text>
               <View style={styles.urlCard}>
                 <Link2 size={16} color={colors.info} />
                 <Text style={styles.urlText} numberOfLines={3}>
@@ -282,7 +282,7 @@ export default function SyncSubscriberScreen() {
             </View>
 
             <View style={styles.section}>
-              <Text style={styles.sectionTitle}>Последняя синхронизация</Text>
+              <Text style={styles.sectionTitle}>{'ПОСЛЕДНЯЯ СИНХРОНИЗАЦИЯ'}</Text>
               <View style={styles.statusCard}>
                 <View style={styles.statusRow}>
                   {activeSub.lastSyncTimestamp ? (
@@ -298,7 +298,7 @@ export default function SyncSubscriberScreen() {
             </View>
 
             <View style={styles.section}>
-              <Text style={styles.sectionTitle}>Действия</Text>
+              <Text style={styles.sectionTitle}>{'ДЕЙСТВИЯ'}</Text>
               <TouchableOpacity
                 style={styles.actionButton}
                 onPress={handleSync}
@@ -320,7 +320,7 @@ export default function SyncSubscriberScreen() {
             </View>
 
             <View style={styles.section}>
-              <Text style={styles.sectionTitle}>Автоматическая проверка</Text>
+              <Text style={styles.sectionTitle}>{'АВТОМАТИЧЕСКАЯ ПРОВЕРКА'}</Text>
               <View style={styles.settingRow}>
                 <View style={styles.settingInfo}>
                   <Text style={styles.settingLabel}>Автопроверка</Text>
@@ -339,7 +339,7 @@ export default function SyncSubscriberScreen() {
 
             {activeSub.autoSyncEnabled && (
               <View style={styles.section}>
-                <Text style={styles.sectionTitle}>Интервал проверки</Text>
+                <Text style={styles.sectionTitle}>{'ИНТЕРВАЛ ПРОВЕРКИ'}</Text>
                 <View style={styles.intervalCard}>
                   {INTERVAL_OPTIONS.map((option) => {
                     const isSelected = activeSub.syncInterval === option.value;
@@ -364,7 +364,7 @@ export default function SyncSubscriberScreen() {
             )}
 
             <View style={styles.section}>
-              <Text style={styles.sectionTitle}>Управление</Text>
+              <Text style={styles.sectionTitle}>{'УПРАВЛЕНИЕ'}</Text>
               <TouchableOpacity style={styles.manageButton} onPress={handleRenameOpen}>
                 <Edit3 size={18} color={colors.info} />
                 <Text style={[styles.manageButtonText, { color: colors.info }]}>Переименовать</Text>
@@ -628,7 +628,6 @@ function createStyles(colors: ThemeColors) {
       fontSize: 13,
       fontWeight: '600' as const,
       color: colors.textMuted,
-      textTransform: 'uppercase',
       letterSpacing: 0.8,
       marginBottom: 10,
     },

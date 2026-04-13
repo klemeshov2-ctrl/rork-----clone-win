@@ -85,8 +85,8 @@ function LogEntryCard({ entry, colors }: { entry: LogEntry; colors: ThemeColors 
           marginRight: 8,
         }}>
           <LevelIcon size={12} color={levelColor} />
-          <Text style={{ fontSize: 10, fontWeight: '700' as const, color: levelColor, textTransform: 'uppercase' as const }}>
-            {getLevelLabel(entry.level)}
+          <Text style={{ fontSize: 10, fontWeight: '700' as const, color: levelColor }}>
+            {getLevelLabel(entry.level).toUpperCase()}
           </Text>
         </View>
         {entry.source && (

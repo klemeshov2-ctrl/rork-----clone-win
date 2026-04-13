@@ -354,7 +354,6 @@ function createStyles(colors: ThemeColors) { return StyleSheet.create({
     color: colors.primary,
     fontWeight: '600' as const,
     marginBottom: 8,
-    textTransform: 'uppercase' as const,
   },
   questionText: {
     fontSize: 20,

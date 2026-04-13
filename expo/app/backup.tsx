@@ -227,7 +227,7 @@ export default function BackupScreen() {
             </View>
 
             <View style={styles.section}>
-              <Text style={styles.sectionTitle}>Синхронизация между пользователями</Text>
+              <Text style={styles.sectionTitle}>{'СИНХРОНИЗАЦИЯ МЕЖДУ ПОЛЬЗОВАТЕЛЯМИ'}</Text>
               <View style={styles.explainerCard}>
                 <View style={styles.explainerIconRow}>
                   <ArrowLeftRight size={20} color={colors.info} />
@@ -256,7 +256,7 @@ export default function BackupScreen() {
           <>
             {/* ===== СИНХРОНИЗАЦИЯ МЕЖДУ ПОЛЬЗОВАТЕЛЯМИ (ВЕРХНЯЯ ЧАСТЬ) ===== */}
             <View style={styles.section}>
-              <Text style={styles.sectionTitle}>Синхронизация между пользователями</Text>
+              <Text style={styles.sectionTitle}>{'СИНХРОНИЗАЦИЯ МЕЖДУ ПОЛЬЗОВАТЕЛЯМИ'}</Text>
               <View style={styles.explainerCard}>
                 <View style={styles.explainerIconRow}>
                   <ArrowLeftRight size={20} color={colors.info} />
@@ -308,7 +308,7 @@ export default function BackupScreen() {
 
             {/* ===== РЕЗЕРВНОЕ КОПИРОВАНИЕ (НИЖНЯЯ ЧАСТЬ) ===== */}
             <View style={styles.section}>
-              <Text style={styles.sectionTitle}>Резервное копирование</Text>
+              <Text style={styles.sectionTitle}>{'РЕЗЕРВНОЕ КОПИРОВАНИЕ'}</Text>
               <View style={styles.explainerCard}>
                 <View style={styles.explainerIconRow}>
                   <HardDrive size={20} color={colors.secondary} />
@@ -373,7 +373,7 @@ export default function BackupScreen() {
             {showBackups && (
               <View style={styles.section}>
                 <View style={styles.sectionHeader}>
-                  <Text style={styles.sectionTitle}>Доступные бэкапы</Text>
+                  <Text style={styles.sectionTitle}>{'ДОСТУПНЫЕ БЭКАПЫ'}</Text>
                   <TouchableOpacity onPress={loadBackupsList}>
                     <RefreshCw size={18} color={colors.textMuted} />
                   </TouchableOpacity>
@@ -427,7 +427,7 @@ export default function BackupScreen() {
 
             {/* ===== АККАУНТ ===== */}
             <View style={styles.section}>
-              <Text style={styles.sectionTitle}>Аккаунт Яндекс</Text>
+              <Text style={styles.sectionTitle}>{'АККАУНТ ЯНДЕКС'}</Text>
               <View style={styles.accountCard}>
                 <View style={styles.accountHeader}>
                   <View style={styles.accountIconWrap}>
@@ -514,7 +514,6 @@ function createStyles(colors: ThemeColors) { return StyleSheet.create({
     fontSize: 13,
     fontWeight: '600' as const,
     color: colors.textMuted,
-    textTransform: 'uppercase',
     letterSpacing: 0.8,
     marginBottom: 12,
   },

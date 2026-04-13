@@ -225,7 +225,7 @@ export function SyncBottomSheet() {
             bounces={false}
           >
             <View style={styles.section}>
-              <Text style={styles.sectionLabel}>Текущий профиль</Text>
+              <Text style={styles.sectionLabel}>{'ТЕКУЩИЙ ПРОФИЛЬ'}</Text>
               <TouchableOpacity
                 style={styles.profileCard}
                 onPress={() => setShowProfileList(!showProfileList)}
@@ -276,7 +276,7 @@ export function SyncBottomSheet() {
 
             {syncProgress && (
               <View style={styles.section}>
-                <Text style={styles.sectionLabel}>Прогресс синхронизации</Text>
+                <Text style={styles.sectionLabel}>{'ПРОГРЕСС СИНХРОНИЗАЦИИ'}</Text>
                 <View style={styles.progressCard}>
                   <View style={styles.progressHeader}>
                     <ActivityIndicator size="small" color={
@@ -325,7 +325,7 @@ export function SyncBottomSheet() {
             )}
 
             <View style={styles.section}>
-              <Text style={styles.sectionLabel}>Действия</Text>
+              <Text style={styles.sectionLabel}>{'ДЕЙСТВИЯ'}</Text>
               <View style={styles.actionsRow}>
                 <TouchableOpacity
                   style={[styles.actionBtn, isSyncing && styles.actionBtnDisabled]}
@@ -366,7 +366,7 @@ export function SyncBottomSheet() {
             </View>
 
             <View style={styles.section}>
-              <Text style={styles.sectionLabel}>Информация</Text>
+              <Text style={styles.sectionLabel}>{'ИНФОРМАЦИЯ'}</Text>
               <View style={styles.infoCard}>
                 {isMasterProfile && lastMasterPublish && (
                   <View style={styles.infoRow}>
@@ -386,7 +386,7 @@ export function SyncBottomSheet() {
             </View>
 
             <View style={styles.section}>
-              <Text style={styles.sectionLabel}>Интервал синхронизации</Text>
+              <Text style={styles.sectionLabel}>{'ИНТЕРВАЛ СИНХРОНИЗАЦИИ'}</Text>
               <View style={styles.intervalRow}>
                 {INTERVAL_OPTIONS.map(option => {
                   const isSelected = currentIntervalValue === option.value;
@@ -405,7 +405,7 @@ export function SyncBottomSheet() {
               </View>
               {isMasterProfile && isMasterEnabled && (
                 <>
-                  <Text style={[styles.sectionLabel, { marginTop: 14 }]}>Интервал публикации</Text>
+                  <Text style={[styles.sectionLabel, { marginTop: 14 }]}>{'ИНТЕРВАЛ ПУБЛИКАЦИИ'}</Text>
                   <View style={styles.intervalRow}>
                     {INTERVAL_OPTIONS.map(option => {
                       const isSelected = masterInterval === option.value;
@@ -428,7 +428,7 @@ export function SyncBottomSheet() {
 
             {isMasterProfile && masterPublicUrl && (
               <View style={styles.section}>
-                <Text style={styles.sectionLabel}>Публичная ссылка</Text>
+                <Text style={styles.sectionLabel}>{'ПУБЛИЧНАЯ ССЫЛКА'}</Text>
                 <View style={styles.urlCard}>
                   <Text style={styles.urlText} numberOfLines={2} selectable>
                     {masterPublicUrl}
@@ -532,7 +532,6 @@ function createStyles(colors: ThemeColors) {
       fontSize: 11,
       fontWeight: '600' as const,
       color: colors.textMuted,
-      textTransform: 'uppercase' as const,
       letterSpacing: 0.8,
       marginBottom: 8,
     },
