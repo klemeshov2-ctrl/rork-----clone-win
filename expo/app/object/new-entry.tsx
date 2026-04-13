@@ -100,6 +100,10 @@ export default function NewEntryScreen() {
   };
 
   const pickFromGallery = async () => {
+    if (Platform.OS === 'web') {
+      Alert.alert('Недоступно', 'Выбор изображений недоступен в Windows-версии');
+      return;
+    }
     if (photos.length >= 5) { Alert.alert('Ошибка', 'Максимум 5 фото'); return; }
     const result = await ImagePicker.launchImageLibraryAsync({
       mediaTypes: ['images'],

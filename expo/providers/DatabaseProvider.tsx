@@ -1,10 +1,18 @@
 import React, { createContext, useContext, useEffect, useState, useRef, useMemo } from 'react';
 import { openProfileDatabase } from '@/lib/database';
 import { useProfile } from './ProfileProvider';
-import * as SQLite from 'expo-sqlite';
+import { Platform } from 'react-native';
+
+export type AppDatabase = {
+  execAsync: (sql: string) => Promise<void>;
+  getAllAsync: <T>(sql: string, params?: unknown[]) => Promise<T[]>;
+  getFirstAsync: <T>(sql: string, params?: unknown[]) => Promise<T | null>;
+  runAsync: (sql: string, params?: unknown[]) => Promise<{ changes: number; lastInsertRowId: number }>;
+  closeAsync: () => Promise<void>;
+};
 
 interface DatabaseContextType {
-  db: SQLite.SQLiteDatabase | null;
+  db: AppDatabase | null;
   isReady: boolean;
 }
 
@@ -12,9 +20,9 @@ const DatabaseContext = createContext<DatabaseContextType>({ db: null, isReady: 
 
 export function DatabaseProvider({ children }: { children: React.ReactNode }) {
   const { activeProfileId, isLoaded: profileLoaded } = useProfile();
-  const [db, setDb] = useState<SQLite.SQLiteDatabase | null>(null);
+  const [db, setDb] = useState<AppDatabase | null>(null);
   const [isReady, setIsReady] = useState(false);
-  const dbRef = useRef<SQLite.SQLiteDatabase | null>(null);
+  const dbRef = useRef<AppDatabase | null>(null);
   const currentProfileRef = useRef<string>('');
 
   useEffect(() => {
@@ -23,7 +31,7 @@ export function DatabaseProvider({ children }: { children: React.ReactNode }) {
     let cancelled = false;
 
     async function init() {
-      console.log('[DB Provider] Initializing for profile:', activeProfileId);
+      console.log('[DB Provider] Initializing for profile:', activeProfileId, 'platform:', Platform.OS);
       setIsReady(false);
 
       if (dbRef.current && currentProfileRef.current !== activeProfileId) {
@@ -37,7 +45,7 @@ export function DatabaseProvider({ children }: { children: React.ReactNode }) {
       }
 
       try {
-        const database = await openProfileDatabase(activeProfileId);
+        const database = await openProfileDatabase(activeProfileId) as unknown as AppDatabase;
         if (!cancelled) {
           dbRef.current = database;
           currentProfileRef.current = activeProfileId;
@@ -49,6 +57,10 @@ export function DatabaseProvider({ children }: { children: React.ReactNode }) {
         }
       } catch (error) {
         console.error('[DB Provider] Database initialization error:', error);
+        if (Platform.OS === 'web' && !cancelled) {
+          setIsReady(true);
+          console.log('[DB Provider] Web fallback: marking as ready without DB');
+        }
       }
     }
 
