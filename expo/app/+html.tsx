@@ -23,7 +23,7 @@ export default function Root({ children }: { children: React.ReactNode }) {
           crossOrigin="anonymous"
         />
         <link
-          href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&subset=cyrillic,cyrillic-ext&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700&display=swap"
           rel="stylesheet"
         />
         <ScrollViewStyleReset />
@@ -34,7 +34,7 @@ export default function Root({ children }: { children: React.ReactNode }) {
                 overflow: hidden;
                 margin: 0;
                 padding: 0;
-                font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+                font-family: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
                 -webkit-font-smoothing: antialiased;
                 -moz-osx-font-smoothing: grayscale;
               }
@@ -42,9 +42,6 @@ export default function Root({ children }: { children: React.ReactNode }) {
                 display: flex;
                 flex: 1;
                 height: 100vh;
-              }
-              * {
-                font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
               }
               input, textarea, select, button {
                 font-family: inherit;
