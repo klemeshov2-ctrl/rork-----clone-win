@@ -6,7 +6,7 @@ import { themes, ThemeColors, AppTheme } from '@/constants/colors';
 const THEME_KEY = '@master_journal_theme';
 
 export const [ThemeProvider, useTheme] = createContextHook(() => {
-  const [themeId, setThemeId] = useState<string>('dark');
+  const [themeId, setThemeId] = useState<string>('light');
   const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {

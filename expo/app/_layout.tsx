@@ -182,7 +182,7 @@ function AuthGate() {
     return <PinAuth />;
   }
 
-  if (!hasPin) {
+  if (!hasPin && pinEnabled) {
     return <PinAuth />;
   }
 

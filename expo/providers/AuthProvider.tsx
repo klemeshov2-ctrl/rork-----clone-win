@@ -28,7 +28,7 @@ const BIOMETRIC_ENABLED_KEY = '@master_journal_biometric_enabled';
 export function AuthProvider({ children }: { children: React.ReactNode }) {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [hasPin, setHasPin] = useState(false);
-  const [pinEnabled, setPinEnabled] = useState(true);
+  const [pinEnabled, setPinEnabled] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const [biometricAvailable, setBiometricAvailable] = useState(false);
   const [biometricEnabled, setBiometricEnabled] = useState(false);
@@ -43,7 +43,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
       const storedPin = await AsyncStorage.getItem(PIN_KEY);
       const pinEnabledStr = await AsyncStorage.getItem(PIN_ENABLED_KEY);
       setHasPin(!!storedPin);
-      const enabled = pinEnabledStr !== 'false';
+      const enabled = pinEnabledStr === 'true';
       setPinEnabled(enabled);
       if (!!storedPin && !enabled) {
         setIsAuthenticated(true);
