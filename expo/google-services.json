@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "313538258959",
+    "project_id": "zhurnal-mastera",
+    "storage_bucket": "zhurnal-mastera.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:313538258959:android:1b50387a25cebfe03f5b7a",
+        "android_client_info": {
+          "package_name": "app.rork.zhurnal_mastera"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA7xe_YC-wQ8bKinUFSLClf5C5fGIQ2fG0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

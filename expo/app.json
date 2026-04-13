@@ -1,0 +1,80 @@
+{
+  "expo": {
+    "name": "Журнал мастера",
+    "slug": "zhurnal-mastera",
+    "version": "1.3",
+    "orientation": "portrait",
+    "icon": "./assets/images/icon.png",
+    "scheme": "zhurnal-mastera",
+    "userInterfaceStyle": "automatic",
+    "newArchEnabled": true,
+    "splash": {
+      "image": "./assets/images/app-icon.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#121212"
+    },
+    "ios": {
+      "supportsTablet": false,
+      "bundleIdentifier": "app.rork.z87dyp4l3c3drbuegrsgn"
+    },
+    "android": {
+      "package": "app.rork.zhurnal_mastera",
+      "googleServicesFile": "./google-services.json",
+      "versionCode": 3,
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/images/adaptive-icon.png",
+        "backgroundColor": "#1a1a2e"
+      },
+      "permissions": [
+        "RECEIVE_BOOT_COMPLETED",
+        "VIBRATE",
+        "WAKE_LOCK",
+        "POST_NOTIFICATIONS"
+      ]
+    },
+    "web": {
+      "favicon": "./assets/images/favicon.png",
+      "name": "Журнал мастера",
+      "shortName": "Журнал мастера",
+      "bundler": "metro"
+    },
+    "plugins": [
+      [
+        "expo-router",
+        {
+          "origin": "https://rork.com/"
+        }
+      ],
+      "expo-font",
+      "expo-web-browser",
+      "expo-secure-store",
+      "expo-sqlite",
+      [
+        "expo-notifications",
+        {
+          "icon": "./assets/images/icon.png",
+          "color": "#1a1a2e",
+          "defaultChannel": "default",
+          "sounds": []
+        }
+      ],
+      "expo-audio"
+    ],
+    "experiments": {
+      "typedRoutes": true
+    },
+    "extra": {
+      "eas": {
+        "projectId": "d0d7398d-15c7-4277-bdde-390aa7b7e778"
+      },
+      "firebase": {
+        "apiKey": "AIzaSyA7xe_YC-wQ8bKinUFSLClf5C5fGIQ2fG0",
+        "authDomain": "zhurnal-mastera.firebaseapp.com",
+        "projectId": "zhurnal-mastera",
+        "storageBucket": "zhurnal-mastera.firebasestorage.app",
+        "messagingSenderId": "313538258959",
+        "appId": "1:313538258959:android:1b50387a25cebfe03f5b7a"
+      }
+    }
+  }
+}
