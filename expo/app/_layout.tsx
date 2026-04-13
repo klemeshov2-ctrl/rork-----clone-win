@@ -219,8 +219,12 @@ export default function RootLayout() {
   useEffect(() => {
     void initLogger();
     console.log('[Firebase] DB ready:', !!db);
-    void requestNotificationPermissions();
-    void setupNotificationChannels();
+    if (Platform.OS !== 'web') {
+      void requestNotificationPermissions();
+      void setupNotificationChannels();
+    } else {
+      console.log('[Web] Notifications skipped on web platform');
+    }
     void SplashScreen.hideAsync();
   }, []);
 

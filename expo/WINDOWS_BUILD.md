@@ -1,68 +1,112 @@
-# Сборка Windows-версии (Журнал Мастера)
+# Сборка Windows .exe версии "Журнал мастера"
 
 ## Требования
 
-- Node.js 18+
-- npm или bun
-- nativefier (`npm install -g nativefier`)
+- **Node.js** 18+ (https://nodejs.org/)
+- **npm** (входит в Node.js)
+- **nativefier** (`npm install -g nativefier`)
+- **Windows 10/11**
 
-## Шаги сборки
+## Шаг 1: Установка зависимостей
 
-### 1. Установка зависимостей
-
-```bash
-cd expo
+```powershell
+Set-ExecutionPolicy RemoteSigned -Scope CurrentUser   # только первый раз
+cd C:\path\to\project\expo
 npm install --legacy-peer-deps
 ```
 
-### 2. Экспорт веб-версии
+## Шаг 2: Экспорт веб-версии
 
-```bash
+```powershell
 npx expo export --platform web --clear
 ```
 
-Это создаст папку `dist/` с готовыми статическими файлами.
+После выполнения появится папка `dist/` с готовыми файлами.
 
-### 3. Проверка в браузере
+## Шаг 3: Проверка в браузере (опционально)
 
-```bash
+```powershell
 npx serve dist
 ```
 
 Откройте http://localhost:3000 в браузере и убедитесь, что приложение работает.
 
-### 4. Сборка .exe через nativefier
+## Шаг 4: Сборка .exe через Nativefier
 
-```bash
-nativefier "dist" --name "Журнал Мастера" --platform windows --arch x64 --overwrite
+### Вариант A: Из локальных файлов через serve
+
+Запустите в одном терминале:
+```powershell
+npx serve dist -l 5555
 ```
 
-Или, если хотите обернуть уже развернутый URL:
-
-```bash
-npx serve dist -l 5000 &
-nativefier "http://localhost:5000" --name "Журнал Мастера" --platform windows --arch x64 --overwrite
+В другом терминале:
+```powershell
+nativefier "http://localhost:5555" ^
+  --name "Журнал Мастера" ^
+  --platform windows ^
+  --arch x64 ^
+  --icon ./assets/images/icon.png ^
+  --single-instance ^
+  --disable-context-menu ^
+  --disable-dev-tools ^
+  --title-bar-style hidden ^
+  --width 1024 ^
+  --height 768 ^
+  --min-width 400 ^
+  --min-height 600 ^
+  --overwrite ^
+  ./windows-build
 ```
 
-Готовый `.exe` будет в созданной папке.
+### Вариант B: Из развернутого URL (если есть хостинг)
 
-## Ограничения Windows-версии
+Если вы развернули dist/ на хостинге (Vercel, Netlify, Firebase Hosting и т.д.):
+
+```powershell
+nativefier "https://your-app-url.com" ^
+  --name "Журнал Мастера" ^
+  --platform windows ^
+  --arch x64 ^
+  --icon ./assets/images/icon.png ^
+  --single-instance ^
+  --overwrite ^
+  ./windows-build
+```
+
+## Шаг 5: Запуск
+
+После сборки готовый .exe будет в папке:
+```
+./windows-build/Журнал Мастера-win32-x64/Журнал Мастера.exe
+```
+
+## Известные ограничения Windows-версии
 
 | Функция | Статус |
 |---|---|
-| Вход по PIN-коду | Работает |
-| Биометрия (отпечаток/лицо) | Отключена |
 | Чат (Firebase) | Работает |
-| Комментарии (Firebase) | Работает |
-| Синхронизация Яндекс.Диск | Работает |
+| Комментарии | Работают |
+| Синхронизация Firebase | Работает |
+| Яндекс.Диск | Работает |
+| Вход по PIN-коду | Работает |
+| Биометрия (отпечаток/Face ID) | Отключена |
 | Push-уведомления | Отключены |
-| Камера | Недоступна |
-| Выбор фото из галереи | Недоступен |
-| Локальная база SQLite | Заглушка (localStorage) |
-| Локальные уведомления | Отключены |
+| Камера | Отключена |
+| Выбор фото | Отключен |
+| SQLite | Заменен на localStorage |
 
-## Примечания
+## Устранение неполадок
 
-- Firebase-функции (чат, комментарии, подписки) работают в веб-версии без ограничений.
-- Локальные данные (объекты, склад, чек-листы) хранятся в localStorage через заглушку базы данных.
-- Для полноценной работы с локальными данными на Windows рекомендуется использовать синхронизацию через Яндекс.Диск.
+### Белый экран после запуска
+- Убедитесь, что `npx expo export --platform web --clear` завершился без ошибок
+- Проверьте что `dist/index.html` существует и содержит `<meta charset="UTF-8">`
+- Попробуйте вариант B (через URL) вместо локальных файлов
+
+### Кракозябры вместо русского текста
+- Убедитесь, что файлы экспортированы в UTF-8
+- Проверьте наличие мета-тега `<meta charset="UTF-8">` в dist/index.html
+
+### Ошибки Firebase
+- Убедитесь, что у вас есть доступ к интернету
+- Проверьте Firebase конфигурацию в app.json → extra → firebase

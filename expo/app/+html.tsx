@@ -30,16 +30,18 @@ export default function Root({ children }: { children: React.ReactNode }) {
         <style
           dangerouslySetInnerHTML={{
             __html: `
-              body {
-                overflow: hidden;
+              html, body {
                 margin: 0;
                 padding: 0;
+                height: 100%;
+                overflow: hidden;
                 font-family: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
                 -webkit-font-smoothing: antialiased;
                 -moz-osx-font-smoothing: grayscale;
               }
               * {
                 font-family: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif !important;
+                box-sizing: border-box;
               }
               [dir] div, [dir] span, [dir] p, [dir] input, [dir] textarea {
                 font-family: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif !important;
@@ -48,6 +50,7 @@ export default function Root({ children }: { children: React.ReactNode }) {
                 display: flex;
                 flex: 1;
                 height: 100vh;
+                width: 100vw;
               }
               input, textarea, select, button {
                 font-family: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif !important;
@@ -59,11 +62,21 @@ export default function Root({ children }: { children: React.ReactNode }) {
                 background: transparent;
               }
               ::-webkit-scrollbar-thumb {
-                background: rgba(255,255,255,0.15);
+                background: rgba(128,128,128,0.3);
                 border-radius: 3px;
               }
               ::-webkit-scrollbar-thumb:hover {
-                background: rgba(255,255,255,0.25);
+                background: rgba(128,128,128,0.5);
+              }
+            `,
+          }}
+        />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              if (window.location.protocol === 'file:') {
+                window.__EXPO_ROUTER_ORIGIN = window.location.href.replace(/\\/[^/]*$/, '/') || './';
+                console.log('[Nativefier] file:// protocol detected, origin:', window.__EXPO_ROUTER_ORIGIN);
               }
             `,
           }}
